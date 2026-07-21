@@ -1,0 +1,1 @@
+const Notifications={async request(){if(!("Notification"in window))return alert("Notifications are not supported here.");const r=await Notification.requestPermission();if(r==="granted")new Notification("Shift Command",{body:"Notifications enabled."})}};

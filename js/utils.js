@@ -1,0 +1,1 @@
+const Utils={today(){return new Date().toISOString().slice(0,10)},id(type,date){return `${type}-${date||this.today()}`},formatDate(d){return new Date(d+"T12:00:00").toLocaleDateString(undefined,{month:"short",day:"numeric"})},hours(a,b){return a&&b?Math.max(0,(new Date(b)-new Date(a))/36e5):0},record(type,date){return App.records.find(r=>r.id===this.id(type,date))}};

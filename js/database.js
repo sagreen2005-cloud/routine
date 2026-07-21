@@ -1,0 +1,7 @@
+const Database={db:null,name:"shiftCommandDB",version:1,store:"records",
+open(){return new Promise((resolve,reject)=>{const r=indexedDB.open(this.name,this.version);r.onupgradeneeded=e=>{this.db=e.target.result;if(!this.db.objectStoreNames.contains(this.store)){const s=this.db.createObjectStore(this.store,{keyPath:"id"});s.createIndex("type","type");s.createIndex("date","date")}};r.onsuccess=e=>{this.db=e.target.result;resolve(this.db)};r.onerror=e=>reject(e.target.error)})},
+put(record){return new Promise((resolve,reject)=>{const t=this.db.transaction(this.store,"readwrite");t.objectStore(this.store).put(record);t.oncomplete=()=>resolve(record);t.onerror=e=>reject(e.target.error)})},
+all(){return new Promise((resolve,reject)=>{const t=this.db.transaction(this.store,"readonly"),r=t.objectStore(this.store).getAll();r.onsuccess=()=>resolve(r.result||[]);r.onerror=e=>reject(e.target.error)})},
+remove(id){return new Promise((resolve,reject)=>{const t=this.db.transaction(this.store,"readwrite");t.objectStore(this.store).delete(id);t.oncomplete=resolve;t.onerror=e=>reject(e.target.error)})},
+clear(){return new Promise((resolve,reject)=>{const t=this.db.transaction(this.store,"readwrite");t.objectStore(this.store).clear();t.oncomplete=resolve;t.onerror=e=>reject(e.target.error)})}
+};
