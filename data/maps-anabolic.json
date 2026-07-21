@@ -1,0 +1,768 @@
+{
+  "program": {
+    "name": "MAPS Anabolic Blueprints",
+    "source_pages": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "duration_weeks": 12,
+    "phases": [
+      {
+        "id": "pre_phase",
+        "name": "Pre Phase",
+        "weeks": [
+          1,
+          2,
+          3
+        ],
+        "objective": "Build overall strength and muscle and prepare for Phase I.",
+        "what_to_expect": [
+          "Better coordination",
+          "Increased strength",
+          "Correction of muscle imbalances",
+          "Improvement in exercise form"
+        ],
+        "foundational_frequency": {
+          "sessions_per_week": 2,
+          "rest_days_between": "2-3"
+        },
+        "set_rep_guidance": {
+          "exercises_per_body_part": 1,
+          "sets_per_exercise": "1-2",
+          "reps_per_exercise": "12-20",
+          "rest_between_sets_seconds": 90
+        },
+        "workouts": [
+          {
+            "id": "pre_phase_foundational",
+            "name": "Foundational Workout",
+            "day": 1,
+            "exercises": [
+              {
+                "order": 1,
+                "name": "Barbell Squats",
+                "sets": 2,
+                "reps": "12-16"
+              },
+              {
+                "order": 2,
+                "name": "Walking Lunges",
+                "sets": 1,
+                "reps": "16-20"
+              },
+              {
+                "order": 3,
+                "name": "Barbell Deadlift",
+                "sets": 1,
+                "reps": "8-12"
+              },
+              {
+                "order": 4,
+                "name": "Barbell Bench Press",
+                "sets": 2,
+                "reps": "12-16"
+              },
+              {
+                "order": 5,
+                "name": "Dumbbell Rows",
+                "sets": 2,
+                "reps": "12-16"
+              },
+              {
+                "order": 6,
+                "name": "Dumbbell Shrugs",
+                "sets": 2,
+                "reps": "12-16"
+              },
+              {
+                "order": 7,
+                "name": "Standing Dumbbell Shoulder Press",
+                "sets": 2,
+                "reps": "12-16"
+              },
+              {
+                "order": 8,
+                "name": "Rear Delt Flyes",
+                "sets": 1,
+                "reps": "12-16"
+              },
+              {
+                "order": 9,
+                "name": "Barbell Curls",
+                "sets": 2,
+                "reps": "12-16"
+              },
+              {
+                "order": 10,
+                "name": "Tricep Pressdown",
+                "sets": 2,
+                "reps": "12-16"
+              },
+              {
+                "order": 11,
+                "name": "Isometric Planks",
+                "sets": 2,
+                "duration_seconds": "30-60"
+              },
+              {
+                "order": 12,
+                "name": "Bodyweight Calf Raises",
+                "sets": 2,
+                "reps": "20-40"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "phase_1",
+        "name": "Phase I - Strength",
+        "weeks": [
+          4,
+          5,
+          6
+        ],
+        "objective": "Build maximum strength and power.",
+        "what_to_expect": [
+          "Rapid and dramatic strength gains",
+          "Muscles begin to feel hard and dense"
+        ],
+        "foundational_frequency": {
+          "sessions_per_week": 2,
+          "advanced_sessions_per_week": 3,
+          "rest_days_between": "2-3"
+        },
+        "set_rep_guidance": {
+          "sets_per_exercise": "2-5",
+          "reps_per_exercise": "1-4",
+          "rest_between_sets_seconds": 180
+        },
+        "workouts": [
+          {
+            "id": "phase_1_day_1",
+            "name": "Foundational Workout",
+            "day": 1,
+            "exercises": [
+              {
+                "order": 1,
+                "name": "Box Squats",
+                "sets": 1,
+                "reps": "10"
+              },
+              {
+                "order": 2,
+                "name": "Barbell Squats",
+                "sets": "4-6",
+                "reps": "1-4"
+              },
+              {
+                "order": 3,
+                "name": "Barbell Bench Press",
+                "sets": "4-6",
+                "reps": "1-4"
+              },
+              {
+                "order": 4,
+                "name": "Weighted Pull-Ups",
+                "sets": 2,
+                "reps": "1-6"
+              },
+              {
+                "order": 5,
+                "name": "Barbell Shrugs",
+                "sets": 3,
+                "reps": "3-6"
+              },
+              {
+                "order": 6,
+                "name": "Barbell Curls",
+                "sets": 2,
+                "reps": "6-8"
+              },
+              {
+                "order": 7,
+                "name": "Barbell Skull Crushers",
+                "sets": 2,
+                "reps": "6-8"
+              },
+              {
+                "order": 8,
+                "name": "Weighted Decline Sit-Ups",
+                "sets": 5,
+                "reps": "8-12"
+              },
+              {
+                "order": 9,
+                "name": "Standing Calf Raises",
+                "sets": 5,
+                "reps": "8-20"
+              }
+            ]
+          },
+          {
+            "id": "phase_1_day_2",
+            "name": "Foundational Workout",
+            "day": 2,
+            "exercises": [
+              {
+                "order": 1,
+                "name": "Good Mornings",
+                "sets": 1,
+                "reps": "10"
+              },
+              {
+                "order": 2,
+                "name": "Barbell Deadlifts",
+                "sets": "4-6",
+                "reps": "1-4"
+              },
+              {
+                "order": 3,
+                "name": "Standing Overhead Barbell Press",
+                "sets": "4-6",
+                "reps": "1-4"
+              },
+              {
+                "order": 4,
+                "name": "Rear Delt Flyes",
+                "sets": 2,
+                "reps": "6-8"
+              },
+              {
+                "order": 5,
+                "name": "Standing Dumbbell Shrugs",
+                "sets": 2,
+                "reps": "6-8"
+              },
+              {
+                "order": 6,
+                "name": "Dumbbell Hammer Curls",
+                "sets": 2,
+                "reps": "6-8"
+              },
+              {
+                "order": 7,
+                "name": "Dumbbell Overhead Tricep Extension",
+                "sets": 2,
+                "reps": "6-8"
+              },
+              {
+                "order": 8,
+                "name": "Hanging Leg Raises",
+                "sets": 5,
+                "reps": "8-20"
+              },
+              {
+                "order": 9,
+                "name": "Seated Calf Raises",
+                "sets": 3,
+                "reps": "8-20"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "phase_2",
+        "name": "Phase II - Muscle Fiber",
+        "weeks": [
+          7,
+          8,
+          9
+        ],
+        "objective": "Focus on feeling the muscles being worked, perfect form, and a strong pump.",
+        "what_to_expect": [
+          "Fuller and rounder muscles"
+        ],
+        "foundational_frequency": {
+          "sessions_per_week": 2,
+          "advanced_sessions_per_week": 3,
+          "rest_days_between": "2-3"
+        },
+        "set_rep_guidance": {
+          "sets_per_exercise": 3,
+          "reps_per_exercise": "8-12",
+          "rest_between_sets_seconds": 60
+        },
+        "workouts": [
+          {
+            "id": "phase_2_day_1",
+            "name": "Foundational Workout",
+            "day": 1,
+            "exercises": [
+              {
+                "order": 1,
+                "name": "Barbell Squats",
+                "sets": 3,
+                "reps": "8-12"
+              },
+              {
+                "order": 2,
+                "name": "Incline Barbell Chest Press",
+                "sets": 3,
+                "reps": "8-12"
+              },
+              {
+                "order": 3,
+                "name": "Barbell Rows",
+                "sets": 3,
+                "reps": "8-12"
+              },
+              {
+                "order": 4,
+                "name": "Standing Dumbbell Shrugs",
+                "sets": 3,
+                "reps": "8-12"
+              },
+              {
+                "order": 5,
+                "name": "Rear Delt Flyes",
+                "sets": 2,
+                "reps": "8-12"
+              },
+              {
+                "order": 6,
+                "name": "Lateral Raise",
+                "sets": 2,
+                "reps": "8-12"
+              },
+              {
+                "order": 7,
+                "name": "Dumbbell Supinating Curls",
+                "sets": 3,
+                "reps": "8-12"
+              },
+              {
+                "order": 8,
+                "name": "Weighted Dips",
+                "sets": 3,
+                "reps": "8-12"
+              },
+              {
+                "order": 9,
+                "name": "Seated Calf Raises",
+                "sets": 3,
+                "reps": "8-12"
+              },
+              {
+                "order": 10,
+                "name": "Hanging Leg Raises",
+                "sets": 3,
+                "reps": "8-20"
+              }
+            ]
+          },
+          {
+            "id": "phase_2_day_2",
+            "name": "Foundational Workout",
+            "day": 2,
+            "exercises": [
+              {
+                "order": 1,
+                "name": "Barbell Deadlifts",
+                "sets": 3,
+                "reps": "4-8"
+              },
+              {
+                "order": 2,
+                "name": "Lying Leg Curls",
+                "sets": 1,
+                "reps": "8-12"
+              },
+              {
+                "order": 3,
+                "name": "Barbell Shrugs",
+                "sets": 3,
+                "reps": "8-12"
+              },
+              {
+                "order": 4,
+                "name": "Flat Dumbbell Chest Press",
+                "sets": 3,
+                "reps": "8-12"
+              },
+              {
+                "order": 5,
+                "name": "Dumbbell Pullover",
+                "sets": 1,
+                "reps": "8-12"
+              },
+              {
+                "order": 6,
+                "name": "Bodyweight Chin-Ups",
+                "sets": 2,
+                "reps": "6-12"
+              },
+              {
+                "order": 7,
+                "name": "Dumbbell Shoulder Press",
+                "sets": 3,
+                "reps": "8-12"
+              },
+              {
+                "order": 8,
+                "name": "Barbell Curls",
+                "sets": 3,
+                "reps": "8-12"
+              },
+              {
+                "order": 9,
+                "name": "Tricep Pressdowns",
+                "sets": 3,
+                "reps": "8-12"
+              },
+              {
+                "order": 10,
+                "name": "Standing Calf Raises",
+                "sets": 3,
+                "reps": "8-12"
+              },
+              {
+                "order": 11,
+                "name": "Bodyweight Decline Sit-Ups",
+                "sets": 3,
+                "reps": "30-100"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "phase_3",
+        "name": "Phase III - Muscle Pump",
+        "weeks": [
+          10,
+          11,
+          12
+        ],
+        "objective": "Maximize the muscle pump and increase strength endurance.",
+        "what_to_expect": [
+          "Maximum muscle pumps",
+          "Full-feeling muscles"
+        ],
+        "foundational_frequency": {
+          "sessions_per_week": 3,
+          "rest_days_between": "2-3"
+        },
+        "set_rep_guidance": {
+          "exercises_per_body_part": 2,
+          "sets_per_exercise": "2-3",
+          "reps_per_exercise": "12-15",
+          "rest_between_sets_seconds": 30
+        },
+        "workouts": [
+          {
+            "id": "phase_3_day_1",
+            "name": "Foundational Workout",
+            "day": 1,
+            "exercises": [
+              {
+                "order": 1,
+                "name": "Barbell Squats",
+                "sets": 3,
+                "reps": "8-15"
+              },
+              {
+                "order": 2,
+                "name": "Sissy Squats",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 3,
+                "name": "Incline Barbell Chest Press",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 4,
+                "name": "Cable Crossovers",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 5,
+                "name": "Dumbbell Rows",
+                "sets": 2,
+                "reps": "8-12"
+              },
+              {
+                "order": 6,
+                "name": "Dumbbell Pullovers",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 7,
+                "name": "Seated Dumbbell Shrugs",
+                "sets": 5,
+                "reps": "12-15"
+              },
+              {
+                "order": 8,
+                "name": "Cable Rear Delt Flyes",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 9,
+                "name": "Barbell Upright Rows",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 10,
+                "name": "Dumbbell Supinating Curls",
+                "sets": 2,
+                "reps": "12-15",
+                "superset_group": "A"
+              },
+              {
+                "order": 11,
+                "name": "Dumbbell Overhead Tricep Extension",
+                "sets": 2,
+                "reps": "12-15",
+                "superset_group": "A"
+              },
+              {
+                "order": 12,
+                "name": "Hammer Cable Curls",
+                "sets": 2,
+                "reps": "12-15",
+                "superset_group": "B"
+              },
+              {
+                "order": 13,
+                "name": "Rope Tricep Pressdowns",
+                "sets": 2,
+                "reps": "12-15",
+                "superset_group": "B"
+              },
+              {
+                "order": 14,
+                "name": "Seated Calf Raises",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 15,
+                "name": "Standing Calf Raises",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 16,
+                "name": "Hanging Leg Raises",
+                "sets": 5,
+                "reps": "15-20"
+              }
+            ]
+          },
+          {
+            "id": "phase_3_day_2",
+            "name": "Foundational Workout",
+            "day": 2,
+            "exercises": [
+              {
+                "order": 1,
+                "name": "Barbell Deadlifts (Touch and Go)",
+                "sets": 3,
+                "reps": "6-10"
+              },
+              {
+                "order": 2,
+                "name": "Chin-Ups",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 3,
+                "name": "Barbell Shrugs",
+                "sets": 5,
+                "reps": "12-15"
+              },
+              {
+                "order": 4,
+                "name": "Flat Dumbbell Chest Press",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 5,
+                "name": "Incline Flyes",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 6,
+                "name": "Arnold Presses",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 7,
+                "name": "Lateral Raises",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 8,
+                "name": "Barbell Curls",
+                "sets": 2,
+                "reps": "12-15",
+                "superset_group": "A"
+              },
+              {
+                "order": 9,
+                "name": "Dips",
+                "sets": 2,
+                "reps": "12-15",
+                "superset_group": "A"
+              },
+              {
+                "order": 10,
+                "name": "Reverse Curls",
+                "sets": 2,
+                "reps": "12-15",
+                "superset_group": "B"
+              },
+              {
+                "order": 11,
+                "name": "Tricep Pressdowns",
+                "sets": 2,
+                "reps": "12-15",
+                "superset_group": "B"
+              },
+              {
+                "order": 12,
+                "name": "Seated Calf Raises",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 13,
+                "name": "Standing Calf Raises",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 14,
+                "name": "Decline Sit-Ups",
+                "sets": 5,
+                "reps": "20-50"
+              }
+            ]
+          },
+          {
+            "id": "phase_3_day_3",
+            "name": "Foundational Workout",
+            "day": 3,
+            "exercises": [
+              {
+                "order": 1,
+                "name": "Good Mornings",
+                "sets": 3,
+                "reps": "12-15"
+              },
+              {
+                "order": 2,
+                "name": "Cable Rows",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 3,
+                "name": "Pulldowns",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 4,
+                "name": "Standing Dumbbell Shrugs",
+                "sets": 5,
+                "reps": "12-15"
+              },
+              {
+                "order": 5,
+                "name": "Incline Barbell Chest Press",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 6,
+                "name": "Cable Chest Presses",
+                "sets": 2,
+                "reps": "15-20"
+              },
+              {
+                "order": 7,
+                "name": "Barbell Behind Neck Shoulder Press",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 8,
+                "name": "Rear Delt Flyes",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 9,
+                "name": "Hammer Curls",
+                "sets": 2,
+                "reps": "12-15",
+                "superset_group": "A"
+              },
+              {
+                "order": 10,
+                "name": "Dumbbell Skull Crushers",
+                "sets": 2,
+                "reps": "12-15",
+                "superset_group": "A"
+              },
+              {
+                "order": 11,
+                "name": "Barbell Curls",
+                "sets": 2,
+                "reps": "12-15",
+                "superset_group": "B"
+              },
+              {
+                "order": 12,
+                "name": "Bench Dips",
+                "sets": 2,
+                "reps": "12-15",
+                "superset_group": "B"
+              },
+              {
+                "order": 13,
+                "name": "Seated Calf Raises",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 14,
+                "name": "Standing Calf Raises",
+                "sets": 2,
+                "reps": "12-15"
+              },
+              {
+                "order": 15,
+                "name": "Hanging Leg Raises",
+                "sets": 5,
+                "reps": "15-20"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "Pages 2-5 were used.",
+      "Trigger sessions from page 6 are not included.",
+      "Exercise names and prescribed sets/reps were transcribed from the PDF."
+    ]
+  }
+}

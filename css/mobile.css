@@ -1,1 +1,1 @@
-@media(min-width:760px){body:before{content:"Mobile Preview";position:fixed;left:25px;top:25px;color:var(--muted)}body{max-width:430px;margin:auto;border-left:1px solid var(--border);border-right:1px solid var(--border)}}@media(max-width:390px){.form-grid.two{grid-template-columns:1fr}}
+@media(min-width:760px){body{max-width:430px;margin:auto;border-left:1px solid var(--border);border-right:1px solid var(--border)}}@media(max-width:390px){.form-grid.two{grid-template-columns:1fr}.set-grid{grid-template-columns:34px 1fr 1fr 44px}}

@@ -1,20 +1,10 @@
 {
-  "name": "Shift Command",
-  "short_name": "ShiftCmd",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#081018",
-  "theme_color": "#081018",
-  "icons": [
-    {
-      "src": "icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+  "name":"Routine",
+  "short_name":"Routine",
+  "description":"Your daily routine, training, health and shift companion.",
+  "start_url":"./index.html",
+  "display":"standalone",
+  "background_color":"#090b10",
+  "theme_color":"#090b10",
+  "icons":[{"src":"icons/icon-192.png","sizes":"192x192","type":"image/png"},{"src":"icons/icon-512.png","sizes":"512x512","type":"image/png"}]
 }

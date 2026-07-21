@@ -6,20 +6,21 @@
   <meta name="theme-color" content="#081018">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Shift Command">
+  <meta name="apple-mobile-web-app-title" content="Routine">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/forms.css">
   <link rel="stylesheet" href="css/mobile.css">
-  <title>Shift Command</title>
+  <title>Routine</title>
 </head>
 <body>
   <div id="lockScreen" class="lock-screen hidden">
     <div class="lock-card">
-      <div class="app-mark">SC</div>
-      <h1>Shift Command</h1>
+      <div class="app-mark">R</div>
+      <h1>Routine</h1>
+      <p class="muted">Optimize every day.</p>
       <p>Enter your six-digit PIN.</p>
       <input id="pinInput" type="password" inputmode="numeric" maxlength="6" placeholder="••••••">
       <button class="primary wide" onclick="Security.unlock()">Unlock</button>
@@ -28,40 +29,42 @@
   </div>
 
   <header class="topbar">
-    <div>
-      <p class="eyebrow" id="todayLabel"></p>
-      <h1 id="pageTitle">Today</h1>
+    <div class="brand-lockup">
+      <div class="brand-mark">R</div>
+      <div><p class="eyebrow" id="todayLabel"></p><h1 id="pageTitle">Today</h1></div>
     </div>
     <button class="icon-btn" onclick="Navigation.showPage('settings')" aria-label="Settings">⚙</button>
   </header>
 
   <main>
     <section id="todayPage" class="page active">
-      <div class="readiness-card">
-        <div>
-          <p class="eyebrow">SHIFT READINESS</p>
-          <div class="score-row"><span id="readinessScore">--</span><small>/100</small></div>
-          <p id="readinessText"></p>
+      <div class="hero-card">
+        <p class="eyebrow">Today's readiness</p>
+        <div class="readiness-layout">
+          <div><div class="score-row"><span id="readinessScore">--</span><small>/100</small></div><p id="readinessText" class="muted"></p></div>
+          <div class="score-ring" id="scoreRing"><span id="scoreRingValue">--</span></div>
         </div>
-        <div class="score-ring" id="scoreRing"><span id="scoreRingValue">--</span></div>
       </div>
 
-      <div class="section-head"><h2>Today’s schedule</h2><span id="shiftBadge" class="badge"></span></div>
+      <div class="section-head"><h2>Next up</h2><span id="shiftBadge" class="badge"></span></div>
+      <button class="card next-card wide" onclick="Navigation.showPage('fitness')">
+        <span class="next-icon">↗</span><span><strong id="nextTitle">Workout</strong><small id="nextSubtitle">Loading your routine…</small></span><span class="chevron">›</span>
+      </button>
+
+      <div class="section-head"><h2>Today’s schedule</h2></div>
       <div id="scheduleCard" class="card"></div>
 
-      <div class="section-head"><h2>Quick log</h2></div>
+      <div class="section-head"><h2>Health snapshot</h2></div>
       <div class="quick-grid">
-        <button class="quick-card" onclick="Navigation.showPage('sleep')"><span>😴</span><strong>Sleep</strong><small id="quickSleep">Not logged</small></button>
-        <button class="quick-card" onclick="Navigation.showPage('nutrition')"><span>💧</span><strong>Nutrition</strong><small id="quickNutrition">Not logged</small></button>
-        <button class="quick-card" onclick="Navigation.showPage('fitness')"><span>🏋️</span><strong>Workout</strong><small id="quickWorkout">Not logged</small></button>
-        <button class="quick-card" onclick="Navigation.showPage('health')"><span>⚖️</span><strong>Health</strong><small id="quickWeight">No weight</small></button>
+        <button class="quick-card" onclick="Navigation.showPage('sleep')"><span>☾</span><strong>Sleep</strong><small id="quickSleep">Not logged</small></button>
+        <button class="quick-card" onclick="Navigation.showPage('nutrition')"><span>◉</span><strong>Nutrition</strong><small id="quickNutrition">Not logged</small></button>
+        <button class="quick-card" onclick="Navigation.showPage('fitness')"><span>↗</span><strong>Workout</strong><small id="quickWorkout">Not started</small></button>
+        <button class="quick-card" onclick="Navigation.showPage('health')"><span>◇</span><strong>Body</strong><small id="quickWeight">No weight</small></button>
       </div>
 
       <div class="section-head"><h2>Daily checklist</h2><span id="checklistProgress"></span></div>
       <div id="dailyChecklist" class="card"></div>
-
-      <div class="section-head"><h2>Reminders</h2></div>
-      <div id="reminderList" class="card"></div>
+      <div class="section-head"><h2>Reminders</h2></div><div id="reminderList" class="card"></div>
     </section>
 
     <section id="sleepPage" class="page">
@@ -100,19 +103,17 @@
     </section>
 
     <section id="fitnessPage" class="page">
-      <div class="card">
-        <div class="section-head inside"><h2>Workout of the day</h2><span id="workoutDayBadge" class="badge"></span></div>
-        <div id="workoutOfDay"></div>
-        <label class="toggle-row"><input id="workoutComplete" type="checkbox"><span>Workout completed</span></label>
-        <button class="primary wide" onclick="Workouts.save()">Save workout</button>
-      </div>
+      <div id="workoutProgramHome"></div>
+      <div id="activeWorkout" class="hidden"></div>
       <div class="card form-card">
-        <h2>Import workout plan</h2>
-        <p class="muted">Accepts JSON, TXT, or CSV for now.</p>
-        <input id="workoutFile" type="file" accept=".json,.txt,.csv">
-        <button class="secondary wide" onclick="Workouts.importFile()">Import file</button>
-        <p id="workoutImportStatus" class="muted"></p>
+        <h2>Program controls</h2>
+        <div class="form-grid two">
+          <label>Current week<select id="programWeek" onchange="Workouts.setWeek(this.value)"></select></label>
+          <label>Next workout<select id="programWorkout" onchange="Workouts.setWorkout(this.value)"></select></label>
+        </div>
+        <button class="secondary wide" onclick="Workouts.resetProgram()">Reset program progress</button>
       </div>
+      <div class="card"><h2>Recent workouts</h2><div id="workoutHistory"></div></div>
     </section>
 
     <section id="healthPage" class="page">
@@ -252,19 +253,17 @@
   </main>
 
   <nav class="bottom-nav">
-    <button class="active" data-page="today" onclick="Navigation.showPage('today')"><span>⌂</span><small>Today</small></button>
-    <button data-page="sleep" onclick="Navigation.showPage('sleep')"><span>☾</span><small>Sleep</small></button>
-    <button data-page="fitness" onclick="Navigation.showPage('fitness')"><span>🏋</span><small>Fitness</small></button>
-    <button data-page="health" onclick="Navigation.showPage('health')"><span>♥</span><small>Health</small></button>
+    <button class="active" data-page="today" onclick="Navigation.showPage('today')"><span>⌂</span><small>Home</small></button>
+    <button data-page="fitness" onclick="Navigation.showPage('fitness')"><span>↗</span><small>Workout</small></button>
+    <button data-page="trends" onclick="Navigation.showPage('trends')"><span>⌁</span><small>Progress</small></button>
+    <button data-page="schedule" onclick="Navigation.showPage('schedule')"><span>□</span><small>Schedule</small></button>
     <button data-page="more" onclick="Navigation.toggleMoreMenu()"><span>•••</span><small>More</small></button>
   </nav>
 
   <div id="moreMenu" class="more-menu hidden">
     <button onclick="Navigation.showPage('nutrition');Navigation.toggleMoreMenu()">Nutrition</button>
     <button onclick="Navigation.showPage('meds');Navigation.toggleMoreMenu()">Meds & supplements</button>
-    <button onclick="Navigation.showPage('trends');Navigation.toggleMoreMenu()">Trends</button>
-    <button onclick="Navigation.showPage('schedule');Navigation.toggleMoreMenu()">Schedule</button>
-    <button onclick="Navigation.showPage('settings');Navigation.toggleMoreMenu()">Settings</button>
+        <button onclick="Navigation.showPage('settings');Navigation.toggleMoreMenu()">Settings</button>
   </div>
 
   <script src="js/config.js"></script>
