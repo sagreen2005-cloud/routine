@@ -113,6 +113,25 @@
         </div>
         <button class="secondary wide" onclick="Workouts.resetProgram()">Reset program progress</button>
       </div>
+
+      <div class="card form-card">
+        <div class="section-head inside">
+          <div>
+            <p class="eyebrow">Workout program</p>
+            <h2 id="activeProgramName">MAPS Anabolic Blueprints</h2>
+          </div>
+          <span id="activeProgramSource" class="badge">BUILT IN</span>
+        </div>
+        <p id="activeProgramDetails" class="muted">12 weeks · 4 phases</p>
+        <label class="file-button">
+          Import program JSON
+          <input id="workoutProgramFile" type="file" accept=".json,application/json" onchange="Workouts.importProgram(event)">
+        </label>
+        <button class="secondary wide" onclick="Workouts.exportProgram()">Export active program</button>
+        <button class="ghost wide" onclick="Workouts.restoreBundledProgram()">Restore MAPS Anabolic</button>
+        <p class="muted">Importing a program resets the current week and active workout, but keeps completed workout history.</p>
+      </div>
+
       <div class="card"><h2>Recent workouts</h2><div id="workoutHistory"></div></div>
     </section>
 

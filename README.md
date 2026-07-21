@@ -52,3 +52,24 @@ Schedule priority:
 1. Specific-date or date-range exception
 2. Temporary schedule
 3. Regular weekly schedule
+
+
+## Importing workout programs
+
+Open **Workout → Workout program → Import program JSON**.
+
+Accepted JSON formats:
+
+```json
+{
+  "program": {
+    "name": "Program name",
+    "duration_weeks": 8,
+    "phases": []
+  }
+}
+```
+
+The outer `program` property is optional. Each phase must include a `weeks` array and a `workouts` array. Each workout must include an `exercises` array, and each exercise must have a `name`.
+
+Importing another program resets the current week and unfinished workout. Completed workout history remains. The active program is stored locally and is included in Routine backups.
