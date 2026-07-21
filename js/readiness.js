@@ -1,0 +1,17 @@
+const Readiness={score(){
+  const s=Utils.record("sleep"),n=Utils.record("nutrition"),w=Utils.record("workout"),h=Utils.record("health");
+  const routine=Schedule.loadSettings().routine;
+  const sleepTarget=Number(routine.sleepTargetHours||7);
+  let x=40;
+  if(s){
+    const slept=Utils.hours(s.start,s.end);
+    x+=Math.min(28,(slept/sleepTarget)*28)+Number(s.quality||0)+(s.magnesium?2:0);
+  }
+  if(n){
+    x+=(n.protein>=200?8:n.protein>=150?5:0)+(n.water>=100?6:n.water>=64?3:0);
+    if(n.cutoff&&n.cutoff<=(routine.caffeineCutoff||"02:00"))x+=4;
+  }
+  if(w?.complete)x+=5;
+  if(h)x+=Math.max(0,Math.min(4,(h.energy||5)-5))+Math.max(0,Math.min(3,(h.mood||5)-5));
+  return Math.max(0,Math.min(100,Math.round(x)));
+}};
