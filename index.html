@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#081018">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Shift Command">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <title>Shift Command</title>
+</head>
+<body>
+  <div id="lockScreen" class="lock-screen hidden">
+    <div class="lock-card">
+      <div class="app-mark">SC</div>
+      <h1>Shift Command</h1>
+      <p>Enter your six-digit PIN.</p>
+      <input id="pinInput" type="password" inputmode="numeric" maxlength="6" placeholder="••••••">
+      <button class="primary wide" onclick="Security.unlock()">Unlock</button>
+      <p id="lockMessage" class="error"></p>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div>
+      <p class="eyebrow" id="todayLabel"></p>
+      <h1 id="pageTitle">Today</h1>
+    </div>
+    <button class="icon-btn" onclick="Navigation.showPage('settings')" aria-label="Settings">⚙</button>
+  </header>
+
+  <main>
+    <section id="todayPage" class="page active">
+      <div class="readiness-card">
+        <div>
+          <p class="eyebrow">SHIFT READINESS</p>
+          <div class="score-row"><span id="readinessScore">--</span><small>/100</small></div>
+          <p id="readinessText"></p>
+        </div>
+        <div class="score-ring" id="scoreRing"><span id="scoreRingValue">--</span></div>
+      </div>
+
+      <div class="section-head"><h2>Today’s schedule</h2><span id="shiftBadge" class="badge"></span></div>
+      <div id="scheduleCard" class="card"></div>
+
+      <div class="section-head"><h2>Quick log</h2></div>
+      <div class="quick-grid">
+        <button class="quick-card" onclick="Navigation.showPage('sleep')"><span>😴</span><strong>Sleep</strong><small id="quickSleep">Not logged</small></button>
+        <button class="quick-card" onclick="Navigation.showPage('nutrition')"><span>💧</span><strong>Nutrition</strong><small id="quickNutrition">Not logged</small></button>
+        <button class="quick-card" onclick="Navigation.showPage('fitness')"><span>🏋️</span><strong>Workout</strong><small id="quickWorkout">Not logged</small></button>
+        <button class="quick-card" onclick="Navigation.showPage('health')"><span>⚖️</span><strong>Health</strong><small id="quickWeight">No weight</small></button>
+      </div>
+
+      <div class="section-head"><h2>Daily checklist</h2><span id="checklistProgress"></span></div>
+      <div id="dailyChecklist" class="card"></div>
+
+      <div class="section-head"><h2>Reminders</h2></div>
+      <div id="reminderList" class="card"></div>
+    </section>
+
+    <section id="sleepPage" class="page">
+      <div class="card form-card">
+        <h2>Sleep log</h2>
+        <div class="form-grid two">
+          <label>Sleep start<input id="sleepStart" type="datetime-local"></label>
+          <label>Wake time<input id="sleepEnd" type="datetime-local"></label>
+          <label>Sleep quality
+            <select id="sleepQuality">
+              <option value="">Select</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+              <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <label>Awakenings<input id="awakenings" type="number" min="0" value="0"></label>
+        </div>
+        <label class="toggle-row"><input id="magnesiumTaken" type="checkbox"><span>Magnesium taken</span></label>
+        <button class="primary wide" onclick="Sleep.save()">Save sleep log</button>
+      </div>
+      <div class="card"><h2>Recent sleep</h2><div id="sleepHistory"></div></div>
+    </section>
+
+    <section id="nutritionPage" class="page">
+      <div class="card form-card">
+        <h2>Nutrition and caffeine</h2>
+        <div class="form-grid two">
+          <label>Protein (g)<input id="protein" type="number"></label>
+          <label>Water (oz)<input id="water" type="number"></label>
+          <label>Caffeine (mg)<input id="caffeineMg" type="number"></label>
+          <label>Last caffeine<input id="caffeineCutoff" type="time"></label>
+        </div>
+        <button class="primary wide" onclick="Nutrition.save()">Save nutrition</button>
+      </div>
+      <div class="card"><h2>Recent nutrition</h2><div id="nutritionHistory"></div></div>
+    </section>
+
+    <section id="fitnessPage" class="page">
+      <div class="card">
+        <div class="section-head inside"><h2>Workout of the day</h2><span id="workoutDayBadge" class="badge"></span></div>
+        <div id="workoutOfDay"></div>
+        <label class="toggle-row"><input id="workoutComplete" type="checkbox"><span>Workout completed</span></label>
+        <button class="primary wide" onclick="Workouts.save()">Save workout</button>
+      </div>
+      <div class="card form-card">
+        <h2>Import workout plan</h2>
+        <p class="muted">Accepts JSON, TXT, or CSV for now.</p>
+        <input id="workoutFile" type="file" accept=".json,.txt,.csv">
+        <button class="secondary wide" onclick="Workouts.importFile()">Import file</button>
+        <p id="workoutImportStatus" class="muted"></p>
+      </div>
+    </section>
+
+    <section id="healthPage" class="page">
+      <div class="card form-card">
+        <h2>Body and wellness</h2>
+        <div class="form-grid two">
+          <label>Weight (lb)<input id="weight" type="number" step="0.1"></label>
+          <label>Body fat (%)<input id="bodyFat" type="number" step="0.1"></label>
+          <label>Waist (in)<input id="waist" type="number" step="0.1"></label>
+          <label>Energy (1–10)<input id="energy" type="number" min="1" max="10"></label>
+          <label>Mood (1–10)<input id="mood" type="number" min="1" max="10"></label>
+        </div>
+        <button class="primary wide" onclick="Health.save()">Save health log</button>
+      </div>
+      <div class="card"><h2>Weight trend</h2><canvas id="weightChart" height="180"></canvas><div id="healthHistory"></div></div>
+    </section>
+
+    <section id="medsPage" class="page">
+      <div class="card form-card">
+        <h2>Add medication or supplement</h2>
+        <label>Name<input id="medName" type="text" placeholder="TRT, GLP-1, vitamin D"></label>
+        <div class="form-grid two">
+          <label>Frequency
+            <select id="medFrequency">
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="twice-weekly">Twice weekly</option>
+            </select>
+          </label>
+          <label>Time<input id="medTime" type="time"></label>
+          <label>First day<input id="medDay1" type="date"></label>
+          <label>Second day<input id="medDay2" type="date"></label>
+        </div>
+        <button class="primary wide" onclick="Medications.add()">Add reminder</button>
+      </div>
+      <div class="card"><h2>Medication schedule</h2><div id="medicationList"></div></div>
+    </section>
+
+    <section id="trendsPage" class="page">
+      <div class="stats-grid" id="trendStats"></div>
+      <div class="card"><h2>Readiness trend</h2><canvas id="readinessChart" height="190"></canvas></div>
+      <div class="card"><h2>Weekly averages</h2><div id="weeklyAverages"></div></div>
+    </section>
+
+    <section id="settingsPage" class="page">
+      <div class="card form-card">
+        <h2>Security</h2>
+        <label>Set six-digit PIN<input id="newPin" type="password" inputmode="numeric" maxlength="6"></label>
+        <button class="secondary wide" onclick="Security.setPin()">Save PIN</button>
+        <button class="ghost wide" onclick="Security.removePin()">Remove PIN</button>
+      </div>
+
+      <div class="card form-card">
+        <h2>Backup and restore</h2>
+        <p class="muted">On iPhone, choose Google Drive from the Share Sheet.</p>
+        <button class="primary wide" onclick="Backup.share()">Share backup</button>
+        <button class="secondary wide" onclick="Backup.download()">Download backup</button>
+        <label class="file-button">Restore backup<input id="restoreFile" type="file" accept=".json" onchange="Backup.restore(event)"></label>
+        <p id="backupStatus" class="muted"></p>
+      </div>
+
+      <div class="card form-card">
+        <h2>Notifications</h2>
+        <button class="secondary wide" onclick="Notifications.request()">Enable notifications</button>
+        <p class="muted">Reliable scheduled alerts and Face ID require a native Capacitor version later.</p>
+      </div>
+
+      <div class="card danger-card"><h2>Reset</h2><button class="danger wide" onclick="App.clearAllData()">Clear all local data</button></div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="active" data-page="today" onclick="Navigation.showPage('today')"><span>⌂</span><small>Today</small></button>
+    <button data-page="sleep" onclick="Navigation.showPage('sleep')"><span>☾</span><small>Sleep</small></button>
+    <button data-page="fitness" onclick="Navigation.showPage('fitness')"><span>🏋</span><small>Fitness</small></button>
+    <button data-page="health" onclick="Navigation.showPage('health')"><span>♥</span><small>Health</small></button>
+    <button data-page="more" onclick="Navigation.toggleMoreMenu()"><span>•••</span><small>More</small></button>
+  </nav>
+
+  <div id="moreMenu" class="more-menu hidden">
+    <button onclick="Navigation.showPage('nutrition');Navigation.toggleMoreMenu()">Nutrition</button>
+    <button onclick="Navigation.showPage('meds');Navigation.toggleMoreMenu()">Meds & supplements</button>
+    <button onclick="Navigation.showPage('trends');Navigation.toggleMoreMenu()">Trends</button>
+    <button onclick="Navigation.showPage('settings');Navigation.toggleMoreMenu()">Settings</button>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/database.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/readiness.js"></script>
+  <script src="js/checklist.js"></script>
+  <script src="js/sleep.js"></script>
+  <script src="js/nutrition.js"></script>
+  <script src="js/workouts.js"></script>
+  <script src="js/health.js"></script>
+  <script src="js/medications.js"></script>
+  <script src="js/trends.js"></script>
+  <script src="js/backup.js"></script>
+  <script src="js/security.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
