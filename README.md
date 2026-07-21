@@ -33,3 +33,22 @@ The application uses plain HTML, CSS, and JavaScript. No npm or build tools are 
 - `js/notifications.js` — notification permission
 - `js/navigation.js` — page navigation
 - `js/app.js` — startup and refresh coordination
+
+
+## Schedule features
+
+The Settings/More menu now includes **Schedule**.
+
+You can:
+- Set the normal status and shift hours for every weekday
+- Configure workday and off-day sleep routines
+- Change workout time, commute, sleep target, and caffeine cutoff
+- Add vacation, sick, training, overtime, holiday, off-day, and custom-shift exceptions
+- Add multi-day vacation ranges
+- Create a temporary weekly schedule for a specified date range
+- Automatically return to the normal weekly schedule after the temporary schedule expires
+
+Schedule priority:
+1. Specific-date or date-range exception
+2. Temporary schedule
+3. Regular weekly schedule

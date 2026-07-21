@@ -1,5 +1,5 @@
 const Config={
-  pageTitles:{today:"Today",sleep:"Sleep",nutrition:"Nutrition",fitness:"Fitness",health:"Health",meds:"Meds & Supplements",trends:"Trends",settings:"Settings"},
+  pageTitles:{today:"Today",sleep:"Sleep",nutrition:"Nutrition",fitness:"Fitness",health:"Health",meds:"Meds & Supplements",trends:"Trends",schedule:"Schedule",settings:"Settings"},
   workSchedule:[["6:30 AM","Home, shower and decompress"],["7:00 AM","Light protein meal and magnesium"],["7:30 AM","Blackout room and prepare for sleep"],["8:00 AM–2:30 PM","Primary sleep block"],["2:30 PM","Wake, water and sunlight"],["3:30 PM","Workout or recovery walk"],["5:00 PM","Family dinner"],["7:00 PM","Pre-shift meal"],["7:20 PM","Leave for work"],["8:00 PM–6:00 AM","Graveyard shift"],["11:30 PM","Protein snack"],["2:00 AM","Main shift meal and caffeine cutoff"],["4:30 AM","Light protein snack"]],
   offSchedule:[["3:00–4:00 AM","Target bedtime"],["11:00 AM–12:00 PM","Wake window"],["Afternoon","Family, church, errands or projects"],["Evening","Meal prep and preparation"]],
   checklistItems:["Sleep logged","Protein goal","Water goal","Workout or recovery","Magnesium","No caffeine after 2:00 AM","Meds and vitamins","Time with family"],
